@@ -1,0 +1,24 @@
+{
+  "name": "@taptrust/taptrust-sdk-solidity",
+  "version": "0.5.2",
+  "description": "Require credentials from your users",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taptrust/taptrust-sdk-solidity.git"
+  },
+  "scripts": {
+    "generate-abi": "node scripts/generateAbi.js"
+  },
+  "keywords": [
+    "taptrust"
+  ],
+  "author": "TapTrust",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/taptrust/taptrust-sdk-solidity/issues"
+  }, 
+  "devDependencies": {
+    "@openzeppelin/contracts": "^4.4.2",
+    "solc": "^0.8.15"
+  }
+}
