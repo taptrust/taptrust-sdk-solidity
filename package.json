@@ -1,6 +1,6 @@
 {
   "name": "@taptrust/taptrust-sdk-solidity",
-  "version": "0.5.2",
+  "version": "0.1.0",
   "description": "Require credentials from your users",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
     "taptrust"
   ],
   "author": "TapTrust",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/taptrust/taptrust-sdk-solidity/issues"
   }, 
