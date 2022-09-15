@@ -12,23 +12,5 @@ npm install @taptrust/taptrust-sdk-solidity
 
 ## Example Usage
 
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@taptrust/taptrust-sdk-solidity/ITapTrust.sol";
+Refer to the [ERC-20](https://github.com/taptrust/taptrust-sdk-solidity/blob/master/contracts/ERC20RequireCredential.sol) and [ERC-721](https://github.com/taptrust/taptrust-sdk-solidity/blob/master/contracts/ERC721RequireCredential.sol) example implementations.
 
-contract ExampleContract is ERC20 {
-    ITapTrust TapTrust;
-
-
-    constructor(address TapTrustContract) {
-        TapTrust = ITapTrust(TapTrustContract);
-    }
-
-    function transfer(address recipient, uint256 amount) public virtual override returns (bool) {
-        TapTrust.requireCredential('kyc');
-        return super.transfer(recipient, amount);
-    }
-}
-```
