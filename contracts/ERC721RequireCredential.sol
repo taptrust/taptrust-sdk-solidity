@@ -8,16 +8,12 @@ import "./TapTrust.sol";
  */
 contract ERC721RequireCredential is TapTrust, ERC721 {
 
-    constructor(address TapTrustRegistrytAddress) ERC721 (_name, _symbol) {
-        setTapTrustAddress(TapTrustRegistrytAddress);
-    }
-
-    function _transfer(address from, address to, uint256 tokenId) virtual override {
+    function _transfer(address from, address to, uint256 tokenId) internal virtual override {
         TapTrust.requireCredential('kyc');
         return super._transfer(from, to, tokenId);
     }
 
-    function _mint(address to, uint256 tokenId) virtual override {
+    function _mint(address to, uint256 tokenId) internal virtual override {
         TapTrust.requireCredential('kyc');
         return super._mint(to, tokenId);
     }

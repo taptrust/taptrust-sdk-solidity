@@ -8,10 +8,6 @@ import "./TapTrust.sol";
  */
 contract ERC20RequireCredential is TapTrust, ERC20 {
 
-    constructor(address TapTrustRegistrytAddress) ERC20 (_name, _symbol) {
-        setTapTrustAddress(TapTrustRegistrytAddress);
-    }
-
     /**
      * @dev See {ERC20-_beforeTokenTransfer}.
      *
@@ -19,7 +15,7 @@ contract ERC20RequireCredential is TapTrust, ERC20 {
      *
      * - the caller must have the credential required by the token.
      */
-    function transfer(address recipient, uint256 amount) public virtual override returns (bool) {
+    function transfer(address recipient, uint256 amount) public virtual returns (bool) {
         TapTrust.requireCredential('kyc');
         return super.transfer(recipient, amount);
     }
