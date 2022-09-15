@@ -23,6 +23,10 @@
  */
 pragma solidity ^0.8.0;
 
+/**
+ * @dev Implementation of the {ICredentialRequirementRegistry} interface allowing 
+ *     for the isVerified function to be called.
+ */
 interface ICredentialRequirementRegistry {
     /**
      * @dev Determine whether the subject address has a verification record that is not expired
