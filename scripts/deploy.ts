@@ -33,6 +33,23 @@ async function main() {
 
   console.log("Account balance:", (await deployer.getBalance()).toString())
 
+    // deploy ERC20RequireCredential
+    const ERC20RequireCredentialFactory: ContractFactory = await hre.ethers.getContractFactory(
+      "ERC20RequireCredential"
+    )
+    const ERC20RequireCredentialContract: Contract = await ERC20RequireCredentialFactory.deploy(1000000000)
+    await ERC20RequireCredentialContract.deployed()
+    console.log("ERC20RequireCredential address:", ERC20RequireCredentialContract.address);
+
+
+    // deploy ERC721RequireCredential
+    const ERC721RequireCredentialFactory: ContractFactory = await hre.ethers.getContractFactory(
+      "ERC721RequireCredential"
+    )
+    const ERC721RequireCredentialContract: Contract = await ERC721RequireCredentialFactory.deploy()
+    await ERC721RequireCredentialContract.deployed()
+    console.log("ERC721RequireCredential address:", ERC721RequireCredentialContract.address);
+
   
 }
 
