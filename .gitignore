@@ -17,6 +17,12 @@ yarn-error.log*
 .next
 out
 
+# cache
+/cache
+
+# artifacts
+/artifacts
+
 # production
 /build
 
