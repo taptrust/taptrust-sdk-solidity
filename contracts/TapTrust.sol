@@ -30,15 +30,15 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 /**
  * @title A persistent ITapTrust implementation.
  */
-contract TapTrust is Ownable, ITapTrust {
+contract TapTrust is ITapTrust, Ownable {
 
     address TapTrustAddress;
 
-    function setTapTrustAddress(address tapTrustAddress) external onlyOwner {
+    function setTapTrustAddress(address tapTrustAddress) external override onlyOwner {
         TapTrustAddress = tapTrustAddress;
     }
 
-    function requireCredential(string memory requirementId) public view returns (bool) {
+    function requireCredential(string memory requirementId) public override view returns (bool) {
        bool isVerified = ICredentialRequirementRegistry(TapTrustAddress).isVerified(requirementId, msg.sender);
        require(isVerified, "No verified credential found");
        return isVerified;
