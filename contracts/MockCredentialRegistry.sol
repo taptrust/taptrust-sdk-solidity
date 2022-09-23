@@ -23,26 +23,21 @@
  */
 pragma solidity ^0.8.0;
 
-import "./ITapTrust.sol";
 import "./ICredentialRequirementRegistry.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
- * @title A persistent ITapTrust implementation.
+ * @title A mock CredentialRequirementRegistry implementation.
  */
-contract TapTrust is ITapTrust, Ownable {
+contract MockCredentialRegistry is ICredentialRequirementRegistry {
 
-    address TapTrustAddress;
+    address RegisteredAddress;
 
-    function setTapTrustAddress(address tapTrustAddress) external override onlyOwner {
-        TapTrustAddress = tapTrustAddress;
+    constructor(address registeredAddress) {
+        RegisteredAddress = registeredAddress;
     }
 
-    function requireCredential(string memory requirementId, address subjectAddress) public override view returns (bool) {
-       bool isVerified = ICredentialRequirementRegistry(TapTrustAddress).isVerified(requirementId, subjectAddress);
-       require(isVerified, "No verified credential found");
-       return isVerified;
-    }
-    
 
+    function isVerified(string memory requirementId, address subject) external override view returns (bool) {
+        return subject == RegisteredAddress;
+    }
 }

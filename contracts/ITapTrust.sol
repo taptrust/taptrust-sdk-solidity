@@ -33,5 +33,5 @@ interface ITapTrust {
     /// @notice Thoews if no verified credential is found
     /// @param requirementId the type of credential to require
     /// @return bool true if a valid credential is found
-    function requireCredential(string memory requirementId) external view returns (bool);
+    function requireCredential(string memory requirementId, address subject) external view returns (bool);
 }
